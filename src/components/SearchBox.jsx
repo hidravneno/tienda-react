@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+import { FaSearch, FaTimes } from 'react-icons/fa';
+import '../styles/SearchBox.css';
 
-function SearchBox({ onClose, localAnchor }) {
+function SearchBox({ onClose }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -13,42 +15,21 @@ function SearchBox({ onClose, localAnchor }) {
   }, [onClose]);
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        top: '100%',
-        right: localAnchor ? 0 : 0,
-        left: localAnchor ? 'auto' : undefined,
-        transform: 'none',
-        background: '#111',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '16px 32px',
-        zIndex: 3000,
-        boxShadow: '0 2px 12px rgba(0,0,0,0.18)',
-        borderBottomLeftRadius: 18,
-        borderBottomRightRadius: 18,
-        transition: 'all 0.3s',
-      }}
-      onClick={onClose}
-    >
-      <input
-        ref={inputRef}
-        type="text"
-        placeholder="Buscar..."
-        style={{
-          border: 'none',
-          outline: 'none',
-          fontSize: '1.1rem',
-          padding: '10px 18px',
-          borderRadius: 8,
-          background: '#222',
-          color: '#fff',
-          minWidth: 200,
-          boxShadow: '0 1px 4px rgba(0,0,0,0.12)',
-        }}
-        onClick={e => e.stopPropagation()}
-      />
+    <div className="searchbox-modal" onClick={onClose}>
+      <div className="searchbox-container" onClick={e => e.stopPropagation()}>
+        <div className="searchbox-input-wrapper">
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="Buscar..."
+            className="searchbox-input"
+          />
+          <FaSearch className="searchbox-icon" title="Buscar" />
+        </div>
+        <button className="searchbox-close" onClick={onClose} aria-label="Cerrar búsqueda">
+          <FaTimes />
+        </button>
+      </div>
     </div>
   );
 }

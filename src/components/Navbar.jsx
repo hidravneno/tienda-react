@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
 import SearchBox from './SearchBox';
 
@@ -6,6 +7,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const searchInputRef = useRef(null);
+  const navigate = useNavigate();
 
   // Cierra el menú si la ventana se hace grande
   useEffect(() => {
@@ -47,7 +49,7 @@ function Navbar() {
       >
         <FaBars size={24} />
       </button>
-      <div className="navbar-brand">
+      <div className="navbar-brand" style={{cursor: 'pointer'}} onClick={() => { setMenuOpen(false); navigate('/'); }}>
         <img src="/logo.png" alt="Logo" className="logo-image" />
         <div className="logo">Vibe Tumbado</div>
       </div>
@@ -62,20 +64,32 @@ function Navbar() {
             <FaTimes size={24} />
           </button>
         </li>
-        <li onClick={() => setMenuOpen(false)}>Inicio</li>
+        <li onClick={() => { setMenuOpen(false); navigate('/'); }}>Inicio</li>
         <li onClick={() => setMenuOpen(false)}>Catálogo</li>
-        <li onClick={() => setMenuOpen(false)}>Contacto</li>
-        <li style={{ position: 'relative' }}>
+        <li onClick={() => { setMenuOpen(false); navigate('/contacto'); }}>Contacto</li>
+        <li>
           <span onClick={() => setShowSearch((v) => !v)}>
             <FaSearch title="Buscar" className="icon" />
           </span>
-          {showSearch && (
-            <SearchBox onClose={() => setShowSearch(false)} localAnchor />
-          )}
         </li>
-        <li onClick={() => setMenuOpen(false)}><FaShoppingCart title="Carrito" className="icon" /></li>
+        <li onClick={() => { setMenuOpen(false); navigate('/cart'); }}>
+          <FaShoppingCart title="Carrito" className="icon" />
+        </li>
       </ul>
-      {/* Eliminado: SearchBox duplicado fuera del ul */}
+      {showSearch && (
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 2000,
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+        }}>
+          <SearchBox onClose={() => setShowSearch(false)} />
+        </div>
+      )}
     </nav>
   );
 }
