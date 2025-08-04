@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
 import SearchBox from './SearchBox';
 
 function Navbar() {
@@ -8,6 +9,9 @@ function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   const searchInputRef = useRef(null);
   const navigate = useNavigate();
+  const { getTotalItems } = useCart();
+
+  const totalItems = getTotalItems();
 
   // Cierra el menú si la ventana se hace grande
   useEffect(() => {
@@ -65,7 +69,7 @@ function Navbar() {
           </button>
         </li>
         <li onClick={() => { setMenuOpen(false); navigate('/'); }}>Inicio</li>
-        <li onClick={() => setMenuOpen(false)}>Catálogo</li>
+        <li onClick={() => { setMenuOpen(false); navigate('/catalogo'); }}>Catálogo</li>
         <li onClick={() => { setMenuOpen(false); navigate('/contacto'); }}>Contacto</li>
         <li>
           <span onClick={() => setShowSearch((v) => !v)}>
@@ -73,7 +77,12 @@ function Navbar() {
           </span>
         </li>
         <li onClick={() => { setMenuOpen(false); navigate('/cart'); }}>
-          <FaShoppingCart title="Carrito" className="icon" />
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <FaShoppingCart title="Carrito" className="icon" />
+            {totalItems > 0 && (
+              <span className="cart-badge">{totalItems}</span>
+            )}
+          </div>
         </li>
       </ul>
       {showSearch && (
