@@ -61,10 +61,11 @@ const ProductDetail = () => {
       originalPrice: "2,499.00",
       description: "Gorra de la línea Barbas Hats con diseño atrevido y personalidad única.",
       images: [
-        "/fidel.webp",
-        "/LABLACK.webp",
-        "/logo.png",
-        "/LABLACKIZQUIERDA.webp"
+        "/B.webp",
+        "/BFRONT.webp",
+        "/BLADITO.webp",
+        "/BABAJO.webp",
+        "/BATRAS.webp"
       ],
       features: [
         "Material: Algodón premium",
@@ -82,10 +83,12 @@ const ProductDetail = () => {
       originalPrice: "1,899.00",
       description: "Diseño Bear Scott con estilo urbano y comodidad excepcional.",
       images: [
-        "/logo.png",
-        "/fidel.webp",
-        "/LABLACK.webp",
-        "/LABLACKIZQUIERDA.webp"
+        "/OSO.webp",
+        "/OSOFRONT.webp",
+        "/OSOARRIBA.jpeg",
+        "/OSOATRAS.webp",
+        "/OSOLADO.webp",
+        "/OSOABAJO.webp"
       ],
       features: [
         "Material: Algodón suave",
@@ -99,16 +102,16 @@ const ProductDetail = () => {
     ,
     5: {
       id: 5,
-      name: "50/50 Dandy Hats",
+      name: "BLACKOUT STARS (Barbas Hats)",
       price: "1,549.00",
       originalPrice: "2,500.00",
       description: "Gorra exclusiva de la línea Dandy Hats con diseño único y materiales de alta calidad. Perfecta para cualquier ocasión.",
       images: [
-        "/LABLACK.webp",
-        "/LABLACKDELADO.webp",
-        "/LABLACKIZQUIERDA.webp",
-        "/LABLACKATRAS.webp",
-        "/LABLACKABAJO.webp"
+        "/BH.webp",
+        "/BHLADOIZQUIERDO.webp",
+        "/BHLADITO.webp",
+        "/BHBOCARRIBA.webp",
+        "/BHATRAS.webp"
       ],
       features: [
         "Material: 100% Algodón Premium",
@@ -121,16 +124,16 @@ const ProductDetail = () => {
     },
     6: {
       id: 6,
-      name: "50/50 Dandy Hats",
+      name: "CHROME VI EDICION LUXE 6 (Barbas Hats)",
       price: "1,549.00",
       originalPrice: "2,500.00",
       description: "Gorra exclusiva de la línea Dandy Hats con diseño único y materiales de alta calidad. Perfecta para cualquier ocasión.",
       images: [
-        "/LABLACK.webp",
-        "/LABLACKDELADO.webp",
-        "/LABLACKIZQUIERDA.webp",
-        "/LABLACKATRAS.webp",
-        "/LABLACKABAJO.webp"
+        "/TFRONT.webp",
+        "/TLADO.webp",
+        "/TATRAS.webp",
+        "/TFRONTLADITO.webp",
+        "/TARRIBA.webp"
       ],
       features: [
         "Material: 100% Algodón Premium",
@@ -144,16 +147,16 @@ const ProductDetail = () => {
     ,
     7: {
       id: 7,
-      name: "50/50 Dandy Hats",
+      name: "CLAVE ALI (Dandy Hats)",
       price: "1,549.00",
       originalPrice: "2,500.00",
       description: "Gorra exclusiva de la línea Dandy Hats con diseño único y materiales de alta calidad. Perfecta para cualquier ocasión.",
       images: [
-        "/LABLACK.webp",
-        "/LABLACKDELADO.webp",
-        "/LABLACKIZQUIERDA.webp",
-        "/LABLACKATRAS.webp",
-        "/LABLACKABAJO.webp"
+        "/HFRONT.webp",
+        "/HLADOFRONT.webp",
+        "/HLADO.webp",
+        "/HATRAS.webp",
+        "/HABAJO.webp"
       ],
       features: [
         "Material: 100% Algodón Premium",
@@ -167,15 +170,15 @@ const ProductDetail = () => {
     ,
     8: {
       id: 8,
-      name: "BEAR SCOTT (Barbas Hats)",
+      name: "COMO JORDAN (Dandy Hats)",
       price: "1,599.00",
       originalPrice: "1,899.00",
       description: "Diseño Bear Scott con estilo urbano y comodidad excepcional.",
       images: [
-        "/logo.png",
-        "/fidel.webp",
-        "/LABLACK.webp",
-        "/LABLACKIZQUIERDA.webp"
+        "/SAD.webp",
+        "/SADFRONTLADO.webp",
+        "/SADFRONTLADODERECHO.webp",
+        "/SADATRAS.webp"
       ],
       features: [
         "Material: Algodón suave",

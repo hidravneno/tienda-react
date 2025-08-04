@@ -3,7 +3,6 @@ import ProductCard from './ProductCard';
 import '../styles/FeaturedProducts.css';
 
 const FeaturedProducts = () => {
-  // Datos de ejemplo - luego puedes conectar con una API
   const featuredProducts = [
     {
       id: 1,
@@ -37,44 +36,45 @@ const FeaturedProducts = () => {
       name: "BEAR SCOTT (Barbas Hats)",
       price: "1,599.00",
       originalPrice: "1,899.00", 
-      image: "/logo.png",
-      hoverImage: "/LABLACK.webp", // Imagen al hacer hover
+      image: "/OSO.webp", // Imagen principal
+      hoverImage: "/OSOFRONT.webp", // Imagen al hacer hover
       isOffer: true
     }
     ,
     {
       id: 5,
-      name: "50/50 Dandy Hats",
+      name: "BLACKOUT STARS (Barbas Hats)",
       price: "1,549.00",
       originalPrice: "2,500.00",
-      image: "/LABLACK.webp", // Imagen principal
-      hoverImage: "/LABLACKDELADO.webp", // Imagen al hacer hover
+      image: "/BH.webp", // Imagen principal
+      hoverImage: "/BHLADOIZQUIERDO.webp", // Imagen al hacer hover
       isOffer: true
     }
     ,
-    {      id: 6,
-      name: "ÁNGEL AZUL (Dandy Hats)", 
+    {
+      id: 6,
+      name: "CHROME VI EDICION LUXE 6 (Barbas Hats)",
       price: "1,699.00",      
       originalPrice: "2,500.00",
-      image: "/LAAZUL.webp", // Imagen principal
-      hoverImage: "/LAAZULADITO.webp", // Imagen al hacer hover
+      image: "/TFRONT.webp", // Imagen principal
+      hoverImage: "/TLADO.webp", // Imagen al hacer hover
       isOffer: true
     },
     {     id: 7,
-      name: "BARBAS B*ANGING B*TCHES (Barbas Hats)",
+      name: "CLAVE ALI (Dandy Hats)",
       price: "1,899.00",
       originalPrice: "2,499.00",
-      image: "/logo.png",
-      hoverImage: "/fidel.webp", // Imagen al hacer hover
+      image: "/HFRONT.webp", // Imagen principal
+      hoverImage: "/HLADOFRONT.webp", // Imagen al hacer hover
       isOffer: true
     },
     {
       id: 8,
-      name: "BEAR SCOTT (Barbas Hats)",
+      name: "COMO JORDAN (Dandy Hats)",
       price: "1,599.00",
       originalPrice: "1,899.00",
-      image: "/logo.png",
-      hoverImage: "/LABLACK.webp", // Imagen al hacer hover
+      image: "/SAD.webp", // Imagen principal
+      hoverImage: "/SADFRONTLADO.webp", // Imagen al hacer hover
       isOffer: true
     } 
   ];

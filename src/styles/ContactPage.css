@@ -1,11 +1,12 @@
 .contact-page {
-  max-width: 480px;
-  margin: 120px auto 0 auto;
+  max-width: 600px;
+  margin: 120px auto 80px auto;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  padding: 32px 24px 40px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 40px 32px 48px 32px;
   text-align: center;
+  min-height: auto;
 }
 .contact-title {
   font-size: 2.2rem;
@@ -57,6 +58,40 @@
 }
 .contact-info {
   margin-top: 18px;
+  padding-bottom: 40px; /* Agregado padding inferior */
   color: #888;
   font-size: 1rem;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .contact-page {
+    margin: 100px auto 60px auto;
+    padding: 32px 20px 40px 20px;
+    max-width: 90%;
+  }
+  
+  .contact-title {
+    font-size: 1.8rem;
+  }
+  
+  .contact-desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    margin: 80px 15px 40px 15px;
+    padding: 24px 16px 32px 16px;
+    max-width: none;
+  }
+  
+  .contact-title {
+    font-size: 1.6rem;
+  }
+  
+  .contact-info {
+    padding-bottom: 20px;
+  }
 }

@@ -38,7 +38,7 @@ function CartPage() {
 
   if (cart.items.length === 0) {
     return (
-      <div className="cart-page">
+      <div className="cart-page cart-page-empty">
         <div className="empty-cart">
           <h1 className="cart-title">Tu carrito está vacío</h1>
           <p>¡Agrega algunos productos increíbles!</p>
@@ -53,7 +53,7 @@ function CartPage() {
             <form className="cart-form">
               <input type="email" placeholder="Correo electrónico" required />
               <button type="submit" className="cart-arrow-btn" aria-label="Suscribirme">
-                <span style={{fontSize: '1.3rem', fontWeight: 'bold', verticalAlign: 'middle'}}>&rarr;</span>
+              <span style={{fontSize: '1.3rem', fontWeight: 'bold', verticalAlign: 'middle'}}>&rarr;</span>
               </button>
             </form>
           </div>

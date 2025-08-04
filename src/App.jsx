@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import CartPage from './components/CartPage';
 import CatalogPage from './components/CatalogPage';
 import ContactPage from './components/ContactPage';
@@ -17,14 +18,19 @@ function App() {
     <CartProvider>
       <ToastProvider>
         <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/catalogo" element={<CatalogPage />} />
-            <Route path="/contacto" element={<ContactPage />} />
-            <Route path="/producto/:id" element={<ProductDetail />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Navbar />
+            <main style={{ flex: 1, paddingTop: '100px' }}>
+              <Routes>
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/catalogo" element={<CatalogPage />} />
+                <Route path="/contacto" element={<ContactPage />} />
+                <Route path="/producto/:id" element={<ProductDetail />} />
+                <Route path="/" element={<Home />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
         </Router>
       </ToastProvider>
     </CartProvider>
