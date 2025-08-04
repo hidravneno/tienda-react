@@ -20,7 +20,7 @@ function App() {
         <Router>
           <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Navbar />
-            <main style={{ flex: 1, paddingTop: '100px' }}>
+            <main style={{ flex: 1 }}>
               <Routes>
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/catalogo" element={<CatalogPage />} />

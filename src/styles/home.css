@@ -3,26 +3,36 @@
   src: url('../../fonts/capitolcity.ttf') format('truetype');
 }
 
-h1 {
-  font-size: 2rem;
-  margin: 1rem 0;
-  color: #000000;
+
+.home-title {
+  font-size: 2.2rem;
+  margin: 0.5rem 0 1.2rem 4cm;
+  color: #222;
   text-align: left;
-  padding-left: 5cm;
   font-family: 'Capitolcity', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  display: block;
 }
 
 /* Sección de footer en Home */
 .home-footer-section {
-  max-width: 480px;
-  margin: 40px auto 0 auto;
-  background: #fff;
-  padding: 0 24px 32px 24px;
-  text-align: center;
+max-width: 500px;
+margin: 48px auto 64px auto;
+background: transparent;
+padding: 0 32px 0 32px;
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+border-radius: 0;
+box-shadow: none;
 }
 
 .home-view-all {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .view-all-btn {
@@ -43,17 +53,19 @@ h1 {
 }
 
 .home-divider {
-  border: none;
-  border-top: 1px solid #eee;
-  margin: 40px 0 32px 0;
+border: none;
+border-top: 1px solid #eee;
+margin: 32px auto 32px auto;
+width: 80%;
 }
 
 .home-links-modern {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 32px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+margin-bottom: 28px;
+width: 100%;
 }
 
 .home-privacy {
@@ -73,29 +85,34 @@ h1 {
 
 .home-subscribe {
   text-align: center;
+  margin-top: 12px;
 }
 
 .home-subscribe-title {
-  font-size: 1.2rem;
-  margin-bottom: 18px;
-  color: #222;
+font-size: 1.2rem;
+margin-bottom: 18px;
+color: #222;
+font-weight: 500;
 }
 
 .home-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 0;
+width: 100%;
+margin-top: 10px;
 }
 
 .home-form input[type="email"] {
-  padding: 14px 18px;
-  border-radius: 2px 0 0 2px;
-  border: 1px solid #bbb;
-  font-size: 1.1rem;
-  width: 320px;
-  outline: none;
-  background: #fff;
+padding: 14px 18px;
+border-radius: 2px 0 0 2px;
+border: 1px solid #bbb;
+font-size: 1.1rem;
+width: 320px;
+outline: none;
+background: #fff;
+margin: 0;
 }
 
 .home-arrow-btn {

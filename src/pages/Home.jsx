@@ -12,7 +12,7 @@ const Home = () => {
     <main style={{ textAlign: 'center', padding: 0, margin: 0 }}>
       <Flyer />
 
-      <h1>Productos Destacados</h1>
+      <h1 className="home-title">Productos Destacados</h1>
       <FeaturedProducts />
       
       {/* Sección de enlaces y suscripción */}

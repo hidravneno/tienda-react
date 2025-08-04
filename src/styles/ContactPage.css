@@ -10,9 +10,10 @@
 }
 .contact-title {
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 12px;
   color: #111;
+  font-family: 'Capitolcity', sans-serif;
 }
 .contact-desc {
   color: #555;
