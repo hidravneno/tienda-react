@@ -8,22 +8,29 @@
 
 /* Empty Cart Styles - Centrado mejorado */
 .empty-cart {
-  max-width: 600px;
-  width: 100%;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  padding: 60px 40px 50px 40px;
-  text-align: center;
+max-width: 600px;
+width: 100%;
+margin: 60px auto 0 auto;
+background: #fff;
+border-radius: 12px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+padding: 60px 40px 50px 40px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
 }
 
 .cart-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin: 0 0 16px 0;
-  letter-spacing: 0.01em;
-  color: #2c3e50;
+font-size: 2.2rem;
+font-weight: 600;
+margin: 0 0 12px 0;
+letter-spacing: 0.01em;
+color: #111;
+text-align: center;
+width: 100%;
+padding: 0;
 }
 
 .empty-cart p {
