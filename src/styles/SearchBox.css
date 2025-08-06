@@ -21,7 +21,7 @@
   width: 100%;
   position: relative;
   padding: 0;
-  overflow: hidden;
+  overflow: visible; /* Cambiado de hidden a visible para permitir que los resultados se muestren fuera */
 }
 
 .searchbox-container .searchbox-input-and-close {
@@ -89,11 +89,17 @@
 
 /* Estilos para los resultados de búsqueda */
 .search-results {
+  position: absolute;
+  top: 48px; /* Altura del contenedor de input para posicionar justo debajo */
+  left: 0;
   width: 100%;
   max-height: 400px;
   overflow-y: auto;
   background: #222;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 12px 12px; /* Redondear las esquinas inferiores */
+  z-index: 2001;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .search-result-item {

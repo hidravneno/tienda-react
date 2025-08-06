@@ -182,7 +182,7 @@ function SearchBox({ onClose }) {
           </button>
         </div>
         
-        {/* Resultados de búsqueda con miniaturas */}
+        {/* Resultados de búsqueda con miniaturas (posicionados debajo del input) */}
         {searchTerm.trim() !== '' && (
           <div className="search-results">
             {searchResults.length > 0 ? (
