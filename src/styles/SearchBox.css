@@ -11,16 +11,25 @@
 .searchbox-container {
   background: #111;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
   border-radius: 12px;
   border: 1.5px solid #fff;
   min-width: 400px;
   max-width: 600px;
   width: 100%;
-  height: 48px;
   position: relative;
-  padding: 0 8px 0 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.searchbox-container .searchbox-input-and-close {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  padding-right: 8px;
 }
 .searchbox-input-wrapper {
   display: flex;
@@ -76,4 +85,103 @@
 .searchbox-close:hover {
   color: #e74c3c;
   background: #222;
+}
+
+/* Estilos para los resultados de búsqueda */
+.search-results {
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #222;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+  background-color: #333;
+}
+
+.search-result-item.selected {
+  background-color: #444;
+  border-left: 3px solid #e74c3c;
+}
+
+.search-result-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-right: 15px;
+  background-color: #333;
+  flex-shrink: 0;
+}
+
+.search-result-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-result-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.search-result-name {
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-result-price {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Estilizar la barra de desplazamiento para los resultados */
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: #222;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Mensaje cuando no hay resultados */
+.no-results {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Pista de navegación */
+.search-navigation-hint {
+  padding: 8px 12px;
+  background: rgba(231, 76, 60, 0.1);
+  border-bottom: 1px solid rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  font-size: 0.8rem;
+  text-align: center;
 }

@@ -29,10 +29,11 @@ const ProductCard = ({ product }) => {
     >
       <div className="product-image-wrapper">
         {product.isOffer && <span className="offer-badge">Oferta</span>}
+        {product.inStock === false && <span className="stock-badge">Agotado</span>}
         <img 
           src={currentImage} 
           alt={product.name} 
-          className="product-image"
+          className={`product-image ${product.inStock === false ? 'out-of-stock' : ''}`}
         />
       </div>
       <div className="product-info">

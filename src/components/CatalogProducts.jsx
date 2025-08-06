@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ProductCard from './ProductCard';
 import AnimatedCard from './AnimatedCard';
 import '../styles/CatalogProducts.css';
 
-const CatalogProducts = () => {
+const CatalogProducts = ({
+  brandFilter,
+  availabilityFilter,
+  priceRange,
+  sortBy,
+  currentPage,
+  itemsPerPage,
+  updateTotalFilteredProducts
+}) => {
   // Productos para el catálogo (incluye los productos destacados más productos adicionales)
-  const catalogProducts = [
+  // Añadimos el atributo "brand" para identificar la marca y "inStock" para disponibilidad
+  const allCatalogProducts = [
     {
       id: 1,
       name: "50/50 Dandy Hats",
@@ -13,7 +22,9 @@ const CatalogProducts = () => {
       originalPrice: "2,500.00",
       image: "/LABLACK.webp",
       hoverImage: "/LABLACKDELADO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
     },
     {
       id: 2,
@@ -22,7 +33,9 @@ const CatalogProducts = () => {
       originalPrice: "2,500.00",
       image: "/LAAZUL.webp",
       hoverImage: "/LAAZULADITO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
     },
     {
       id: 3,
@@ -31,7 +44,9 @@ const CatalogProducts = () => {
       originalPrice: "2,499.00",
       image: "/B.webp",
       hoverImage: "/BFRONT.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "barbas",
+      inStock: true
     },
     {
       id: 4,
@@ -40,7 +55,9 @@ const CatalogProducts = () => {
       originalPrice: "1,899.00", 
       image: "/OSO.webp",
       hoverImage: "/OSOFRONT.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "barbas",
+      inStock: false
     },
     {
       id: 5,
@@ -49,7 +66,9 @@ const CatalogProducts = () => {
       originalPrice: "2,500.00",
       image: "/BH.webp",
       hoverImage: "/BHLADOIZQUIERDO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "barbas",
+      inStock: true
     },
     {
       id: 6,
@@ -58,7 +77,9 @@ const CatalogProducts = () => {
       originalPrice: "2,500.00",
       image: "/TFRONT.webp",
       hoverImage: "/TLADO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "barbas",
+      inStock: true
     },
     {
       id: 7,
@@ -67,7 +88,9 @@ const CatalogProducts = () => {
       originalPrice: "2,499.00",
       image: "/HFRONT.webp",
       hoverImage: "/HLADOFRONT.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
     },
     {
       id: 8,
@@ -76,7 +99,9 @@ const CatalogProducts = () => {
       originalPrice: "1,899.00",
       image: "/SAD.webp",
       hoverImage: "/SADFRONTLADO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "dandy",
+      inStock: false
     },
     // Productos adicionales para llenar el catálogo (6 productos más para completar 2 filas más)
     {
@@ -86,7 +111,9 @@ const CatalogProducts = () => {
       originalPrice: "2,200.00",
       image: "/LABLACK.webp",
       hoverImage: "/LABLACKDELADO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "vibe",
+      inStock: true
     },
     {
       id: 10,
@@ -95,7 +122,9 @@ const CatalogProducts = () => {
       originalPrice: "2,099.00",
       image: "/LAAZUL.webp",
       hoverImage: "/LAAZULADITO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "vibe",
+      inStock: true
     },
     {
       id: 11,
@@ -104,7 +133,9 @@ const CatalogProducts = () => {
       originalPrice: "2,300.00",
       image: "/B.webp",
       hoverImage: "/BFRONT.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "barbas",
+      inStock: true
     },
     {
       id: 12,
@@ -113,7 +144,9 @@ const CatalogProducts = () => {
       originalPrice: "2,100.00",
       image: "/OSO.webp",
       hoverImage: "/OSOFRONT.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
     },
     {
       id: 13,
@@ -122,7 +155,9 @@ const CatalogProducts = () => {
       originalPrice: "2,400.00",
       image: "/BH.webp",
       hoverImage: "/BHLADOIZQUIERDO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "vibe",
+      inStock: false
     },
     {
       id: 14,
@@ -131,7 +166,9 @@ const CatalogProducts = () => {
       originalPrice: "2,000.00",
       image: "/TFRONT.webp",
       hoverImage: "/TLADO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
     },
     // Tercera fila adicional
     {
@@ -141,7 +178,9 @@ const CatalogProducts = () => {
       originalPrice: "2,200.00",
       image: "/HFRONT.webp",
       hoverImage: "/HLADOFRONT.webp",
-      isOffer: true
+      isOffer: false,
+      brand: "vibe",
+      inStock: true
     },
     {
       id: 16,
@@ -150,7 +189,9 @@ const CatalogProducts = () => {
       originalPrice: "2,099.00",
       image: "/SAD.webp",
       hoverImage: "/SADFRONTLADO.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "barbas",
+      inStock: true
     },
     {
       id: 17,
@@ -159,7 +200,9 @@ const CatalogProducts = () => {
       originalPrice: "2,300.00",
       image: "/LABLACK.webp",
       hoverImage: "/LABLACKDELADO.webp",
-      isOffer: true
+      isOffer: false,
+      brand: "dandy",
+      inStock: true
     },
     {
       id: 18,
@@ -168,7 +211,9 @@ const CatalogProducts = () => {
       originalPrice: "2,100.00",
       image: "/LAAZUL.webp",
       hoverImage: "/LAAZULADITO.webp",
-      isOffer: true
+      isOffer: false,
+      brand: "vibe",
+      inStock: true
     },
     {
       id: 19,
@@ -177,7 +222,9 @@ const CatalogProducts = () => {
       originalPrice: "2,400.00",
       image: "/B.webp",
       hoverImage: "/BFRONT.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "barbas",
+      inStock: false
     },
     {
       id: 20,
@@ -186,7 +233,9 @@ const CatalogProducts = () => {
       originalPrice: "2,000.00",
       image: "/OSO.webp",
       hoverImage: "/OSOFRONT.webp",
-      isOffer: true
+      isOffer: false,
+      brand: "dandy",
+      inStock: true
     },
     // Cuarta fila adicional
     {
@@ -196,7 +245,9 @@ const CatalogProducts = () => {
       originalPrice: "2,200.00",
       image: "/BH.webp",
       hoverImage: "/BHLADOIZQUIERDO.webp",
-      isOffer: true
+      isOffer: false,
+      brand: "vibe",
+      inStock: true
     },
     {
       id: 22,
@@ -205,7 +256,9 @@ const CatalogProducts = () => {
       originalPrice: "2,099.00",
       image: "/TFRONT.webp",
       hoverImage: "/TLADO.webp",
-      isOffer: true
+      isOffer: false,
+      brand: "barbas",
+      inStock: true
     },
     {
       id: 23,
@@ -214,7 +267,9 @@ const CatalogProducts = () => {
       originalPrice: "2,300.00",
       image: "/HFRONT.webp",
       hoverImage: "/HLADOFRONT.webp",
-      isOffer: true
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
     },
     {
       id: 24,
@@ -223,18 +278,166 @@ const CatalogProducts = () => {
       originalPrice: "2,100.00",
       image: "/SAD.webp",
       hoverImage: "/SADFRONTLADO.webp",
-      isOffer: true
+      isOffer: false,
+      brand: "vibe",
+      inStock: false
+    },
+    // Añadimos más productos para la paginación
+    {
+      id: 25,
+      name: "SUMMER VIBE (Dandy Hats)",
+      price: "1,899.00",
+      originalPrice: "2,399.00",
+      image: "/LABLACK.webp",
+      hoverImage: "/LABLACKDELADO.webp",
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
+    },
+    {
+      id: 26,
+      name: "WINTER FLOW (Barbas Hats)",
+      price: "1,999.00",
+      originalPrice: "2,499.00",
+      image: "/LAAZUL.webp",
+      hoverImage: "/LAAZULADITO.webp",
+      isOffer: true,
+      brand: "barbas",
+      inStock: true
+    },
+    {
+      id: 27,
+      name: "SPRING SPECIAL (Vibe Hats)",
+      price: "1,699.00",
+      originalPrice: "2,199.00",
+      image: "/B.webp",
+      hoverImage: "/BFRONT.webp",
+      isOffer: false,
+      brand: "vibe",
+      inStock: true
+    },
+    {
+      id: 28,
+      name: "AUTUMN EDITION (Dandy Hats)",
+      price: "1,799.00",
+      originalPrice: "2,299.00",
+      image: "/OSO.webp",
+      hoverImage: "/OSOFRONT.webp",
+      isOffer: true,
+      brand: "dandy",
+      inStock: false
+    },
+    {
+      id: 29,
+      name: "LIMITED DIAMOND (Barbas Hats)",
+      price: "2,499.00",
+      originalPrice: "2,999.00",
+      image: "/BH.webp",
+      hoverImage: "/BHLADOIZQUIERDO.webp",
+      isOffer: true,
+      brand: "barbas",
+      inStock: true
+    },
+    {
+      id: 30,
+      name: "EXCLUSIVE GOLD (Vibe Hats)",
+      price: "2,299.00",
+      originalPrice: "2,899.00",
+      image: "/TFRONT.webp",
+      hoverImage: "/TLADO.webp",
+      isOffer: false,
+      brand: "vibe",
+      inStock: true
+    },
+    {
+      id: 31,
+      name: "PREMIUM BLACK (Dandy Hats)",
+      price: "1,999.00",
+      originalPrice: "2,599.00",
+      image: "/HFRONT.webp",
+      hoverImage: "/HLADOFRONT.webp",
+      isOffer: true,
+      brand: "dandy",
+      inStock: true
+    },
+    {
+      id: 32,
+      name: "CLASSIC WHITE (Barbas Hats)",
+      price: "1,899.00",
+      originalPrice: "2,399.00",
+      image: "/SAD.webp",
+      hoverImage: "/SADFRONTLADO.webp",
+      isOffer: false,
+      brand: "barbas",
+      inStock: false
     }
   ];
 
+  // Aplicar filtros y ordenamiento
+  const filteredProducts = useMemo(() => {
+    let filtered = [...allCatalogProducts];
+    
+    // Filtro por marca
+    if (brandFilter) {
+      filtered = filtered.filter(product => product.brand === brandFilter);
+    }
+    
+    // Filtro por disponibilidad
+    if (availabilityFilter === 'in-stock') {
+      filtered = filtered.filter(product => product.inStock);
+    } else if (availabilityFilter === 'offer') {
+      filtered = filtered.filter(product => product.isOffer);
+    }
+    
+    // Filtro por rango de precio
+    filtered = filtered.filter(product => {
+      const price = parseFloat(product.price.replace(',', ''));
+      return price >= priceRange[0] && price <= priceRange[1];
+    });
+    
+    // Ordenamiento
+    if (sortBy === 'name-asc') {
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'name-desc') {
+      filtered.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortBy === 'price-asc') {
+      filtered.sort((a, b) => {
+        return parseFloat(a.price.replace(',', '')) - parseFloat(b.price.replace(',', ''));
+      });
+    } else if (sortBy === 'price-desc') {
+      filtered.sort((a, b) => {
+        return parseFloat(b.price.replace(',', '')) - parseFloat(a.price.replace(',', ''));
+      });
+    }
+    
+    return filtered;
+  }, [brandFilter, availabilityFilter, priceRange, sortBy, allCatalogProducts]);
+  
+  // Actualizar el conteo total de productos filtrados
+  useEffect(() => {
+    updateTotalFilteredProducts(filteredProducts.length);
+  }, [filteredProducts, updateTotalFilteredProducts]);
+  
+  // Aplicar paginación
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredProducts.slice(startIndex, startIndex + itemsPerPage);
+  }, [currentPage, itemsPerPage, filteredProducts]);
+  
   return (
     <section className="catalog-products">
       <div className="catalog-grid">
-        {catalogProducts.map((product, index) => (
-          <AnimatedCard key={product.id} delay={index * 100}>
-            <ProductCard product={product} />
-          </AnimatedCard>
-        ))}
+        {paginatedProducts.length > 0 ? (
+          paginatedProducts.map((product, index) => (
+            <AnimatedCard key={product.id} delay={index * 100}>
+              <ProductCard product={product} />
+            </AnimatedCard>
+          ))
+        ) : (
+          <div className="no-products">
+            <p>No se encontraron productos que coincidan con los filtros seleccionados.</p>
+          </div>
+        )}
       </div>
     </section>
   );

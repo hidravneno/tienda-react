@@ -8,13 +8,23 @@
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
   will-change: opacity, transform;
-  min-height: 100vh;
+  min-height: 50vh;
   overflow: hidden; /* Añadido para prevenir desbordamiento */
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 2rem 0;
+  color: #555;
 }
 
 /* Responsive Design */
