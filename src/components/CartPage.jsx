@@ -134,7 +134,7 @@ function CartPage() {
               <span>Total</span>
               <span>${formatPrice(getTotalPrice().toString())} MXN</span>
             </div>
-            <button className="checkout-btn">
+            <button className="checkout-btn" onClick={() => navigate('/checkout')}>
               Proceder al pago
             </button>
             <button onClick={() => navigate('/')} className="continue-shopping-btn">

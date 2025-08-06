@@ -12,3 +12,87 @@
   font-weight: 700;
   letter-spacing: 0.01em;
 }
+
+.catalog-page {
+  margin-top: 120px;
+  padding: 0 1rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden; /* Añadido para prevenir scroll horizontal */
+  width: 100%;
+}
+
+.catalog-description {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.catalog-filters {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.filter-select {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.filter-select:focus {
+  border-color: #888;
+}
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #111;
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 100;
+  opacity: 0.8;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #e74c3c;
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .catalog-page {
+    margin-top: 100px;
+  }
+  
+  .catalog-filters {
+    justify-content: center;
+  }
+  
+  .scroll-to-top-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

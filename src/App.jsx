@@ -8,6 +8,7 @@ import CatalogPage from './components/CatalogPage';
 import ContactPage from './components/ContactPage';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
+import CheckoutPage from './pages/CheckoutPage';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './context/ToastContext';
 import './styles/global.css';
@@ -23,6 +24,7 @@ function App() {
             <main style={{ flex: 1 }}>
               <Routes>
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/catalogo" element={<CatalogPage />} />
                 <Route path="/contacto" element={<ContactPage />} />
                 <Route path="/producto/:id" element={<ProductDetail />} />
