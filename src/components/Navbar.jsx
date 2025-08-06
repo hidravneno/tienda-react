@@ -88,7 +88,7 @@ function Navbar() {
       {showSearch && (
         <div style={{
           position: 'absolute',
-          left: '50%',
+          left: '45%', /* Cambiado de 50% a 45% para mover el buscador a la izquierda */
           top: '50%',
           transform: 'translate(-50%, -50%)',
           zIndex: 2000,
