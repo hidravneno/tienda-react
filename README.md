@@ -17,7 +17,7 @@ Una elegante y moderna tienda en línea para la marca Vibe Tumbado, especializad
 
 ## 🚀 Demo
 
-Puedes ver la versión desplegada de la aplicación en [https://vibetumbado.netlify.app](https://vibetumbado.netlify.app)
+Puedes ver la versión desplegada de la aplicación en [https://dev.technnest.com/](https://dev.technnest.com/)
 
 ## 🛠️ Tecnologías utilizadas
 
