@@ -1,17 +1,19 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 // Crear el Context
 const CartContext = createContext();
 
 // Reducer para manejar las acciones del carrito
 const cartReducer = (state, action) => {
+  let newState;
+  
   switch (action.type) {
     case 'ADD_TO_CART':
       const existingItem = state.items.find(item => item.id === action.payload.id);
       
       if (existingItem) {
         // Si el producto ya existe, incrementar cantidad
-        return {
+        newState = {
           ...state,
           items: state.items.map(item =>
             item.id === action.payload.id
@@ -21,20 +23,22 @@ const cartReducer = (state, action) => {
         };
       } else {
         // Si es un producto nuevo, agregarlo
-        return {
+        newState = {
           ...state,
           items: [...state.items, { ...action.payload, quantity: 1 }]
         };
       }
+      break;
 
     case 'REMOVE_FROM_CART':
-      return {
+      newState = {
         ...state,
         items: state.items.filter(item => item.id !== action.payload)
       };
+      break;
 
     case 'UPDATE_QUANTITY':
-      return {
+      newState = {
         ...state,
         items: state.items.map(item =>
           item.id === action.payload.id
@@ -42,26 +46,42 @@ const cartReducer = (state, action) => {
             : item
         ).filter(item => item.quantity > 0)
       };
+      break;
 
     case 'CLEAR_CART':
-      return {
+      newState = {
         ...state,
         items: []
       };
+      break;
+
+    case 'LOAD_CART':
+      newState = action.payload;
+      break;
 
     default:
       return state;
   }
+  
+  // Guardar en localStorage después de cada cambio
+  localStorage.setItem('cart', JSON.stringify(newState));
+  return newState;
 };
 
-// Estado inicial
-const initialState = {
-  items: []
+// Función para cargar el estado inicial del carrito desde localStorage
+const loadInitialState = () => {
+  try {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : { items: [] };
+  } catch (error) {
+    console.error('Error al cargar el carrito desde localStorage:', error);
+    return { items: [] };
+  }
 };
 
 // Provider component
 export const CartProvider = ({ children }) => {
-  const [cart, dispatch] = useReducer(cartReducer, initialState);
+  const [cart, dispatch] = useReducer(cartReducer, loadInitialState());
 
   // Funciones helper
   const addToCart = (product) => {

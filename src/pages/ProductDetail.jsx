@@ -200,6 +200,13 @@ const ProductDetail = () => {
       showToast(`🛒 ${product.name} agregado al carrito!`, 'success', 4000);
     }
   };
+  
+  const handleBuyNow = () => {
+    if (product) {
+      addToCart(product);
+      navigate('/checkout');
+    }
+  };
 
   if (!product) {
     return (
@@ -269,7 +276,7 @@ const ProductDetail = () => {
             <button className="add-to-cart-btn" onClick={handleAddToCart}>
               Agregar al carrito
             </button>
-            <button className="buy-now-btn">
+            <button className="buy-now-btn" onClick={handleBuyNow}>
               Comprar ahora
             </button>
           </div>
